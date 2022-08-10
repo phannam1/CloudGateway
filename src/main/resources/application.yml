@@ -1,0 +1,15 @@
+server:
+  port: 8082
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: login
+          uri: http://localhost:8081/
+          predicates:
+          - Path=/api/auth/**
+        - id: work
+          uri: http://localhost:8083/
+          predicates:
+          - Path=/api/**   
+
